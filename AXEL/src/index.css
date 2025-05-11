@@ -1,0 +1,138 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 13%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 196 85% 43%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 260 80% 75%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 260 80% 75%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 196 85% 43%;
+
+    --radius: 0.5rem;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 196 85% 43%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 260 80% 75%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 260 80% 75%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 196 85% 43%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-axelari-navy text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  .light {
+    @apply bg-white;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-axelari-navy-light/90 backdrop-blur-sm border border-white/10 shadow-lg;
+  }
+  
+  .light .glass-card {
+    @apply bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg;
+  }
+  
+  .gradient-border {
+    position: relative;
+    border-radius: var(--radius);
+  }
+  
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: calc(var(--radius) + 1px);
+    background: linear-gradient(to right, #06B6D4, #9D8DF1);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .progress-gradient {
+    background: linear-gradient(to right, #06B6D4, #9D8DF1);
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-axelari-teal to-axelari-purple bg-clip-text text-transparent;
+  }
+
+  .focus-ring {
+    @apply ring-2 ring-axelari-teal ring-offset-2 ring-offset-axelari-navy outline-none;
+  }
+  
+  .light .focus-ring {
+    @apply ring-offset-white;
+  }
+  
+  /* Improved text visibility */
+  .text-improved-visibility {
+    @apply text-white;
+  }
+  
+  .light .text-improved-visibility {
+    @apply text-gray-700;
+  }
+}
